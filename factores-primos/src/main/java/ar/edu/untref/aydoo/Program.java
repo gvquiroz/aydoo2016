@@ -15,16 +15,15 @@ public class Program {
 	        System.out.println("El valor de entrada debe ser un Integer");
 	        System.exit(1);
 	    }
-	    System.out.println("Numero primo ingresado: " + numero);   
+	    System.out.print("Factores primos: " + numero + ": ");   
 
 	    for(int i=2;i<=numero;i++){
 	        while(numero%i==0){
 	            numero=numero/i;
 	            System.out.print(i+"  ");
 	         
-	    }
-
-	    System.out.println();
+	    	}
+		}
+		System.out.println();
 	}
-}
 }
