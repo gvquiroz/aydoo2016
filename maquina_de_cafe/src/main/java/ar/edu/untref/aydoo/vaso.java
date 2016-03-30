@@ -29,6 +29,7 @@ public class vaso {
 	}
 	public void vaciarContenido(){
 		this.tieneContenido = false;
+		this.setAzucar(0);
 	}
 
 	public int getAzucar() {

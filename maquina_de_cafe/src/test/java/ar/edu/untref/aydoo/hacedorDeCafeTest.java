@@ -39,4 +39,15 @@ public class hacedorDeCafeTest {
 		nuevoVasito.setAzucar(2);
 		Assert.assertEquals(2, nuevoVasito.getAzucar());
 	}
+	@Test
+	public void probandoAgregarAzucarYVaciarContenido(){
+		nuevoVasito.setContenido("cafe");
+		
+		Assert.assertEquals("cafe",nuevoVasito.getContenido());
+		nuevoVasito.setAzucar(2);
+		Assert.assertEquals(2, nuevoVasito.getAzucar());
+		nuevoVasito.vaciarContenido();
+		Assert.assertEquals(false, nuevoVasito.isTieneContenido());
+		Assert.assertEquals(0, nuevoVasito.getAzucar());
+	}
 }
