@@ -7,6 +7,7 @@ public class maquinaExpendedoraTest {
 	private vaso nuevoVasito = new vaso();
 	private hacedorDeCafeConLeche hacedor = new hacedorDeCafeConLeche();
 	private maquinaExpendedora maquina = new maquinaExpendedora();
+	private azucarero azucareroTest = new azucarero();
 	
 	@Test
 	public void probandovasoSinContenido(){
@@ -40,6 +41,12 @@ public class maquinaExpendedoraTest {
 		
 		Assert.assertEquals("cafe",nuevoVasito.getContenido());
 		nuevoVasito.setAzucar(2);
+		Assert.assertEquals(2, nuevoVasito.getAzucar());
+	}
+	@Test
+	public void probandoAzucarero(){
+		azucareroTest.agregarAzucar(nuevoVasito, 2);
+		
 		Assert.assertEquals(2, nuevoVasito.getAzucar());
 	}
 	@Test
@@ -84,4 +91,5 @@ public class maquinaExpendedoraTest {
 		maquina.hacerCafeConLecheConNDeAzucar(nuevoVasito,5);
 		Assert.assertEquals(5, nuevoVasito.getAzucar());
 	}
+	
 }
