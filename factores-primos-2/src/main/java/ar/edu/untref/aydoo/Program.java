@@ -23,9 +23,21 @@ public class Program {
 			Iterator<Integer> it = resultado.iterator();
 			
 			/*
+			 * Flag de control y seteo de default en el caso de que el formato no este especificado
+			 */
+			String formatoDeDevolucion = null;
+			
+			if (args.length == 1){
+				formatoDeDevolucion = "--format=pretty";
+			} else {
+				formatoDeDevolucion = args[1];
+			}
+			
+			/*
 			 * Switch que reconoce el tipo de formato para la entrega de valores
 			 */
-			String formatoDeDevolucion = args[1];
+			
+			
 	        switch (formatoDeDevolucion.toLowerCase()) {
 	         	case "--format=pretty":
 	 		    System.out.print("Factores primos: " + numero + ": ");
