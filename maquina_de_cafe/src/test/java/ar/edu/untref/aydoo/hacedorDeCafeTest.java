@@ -16,4 +16,11 @@ public class hacedorDeCafeTest {
 		
 		Assert.assertEquals("cafe",nuevoVasito.getContenido());
 	}
+	@Test
+	public void probandoIngresarContenidoyChequeoDeContenido(){
+		nuevoVasito.setContenido("cafe");
+		
+		Assert.assertEquals("cafe",nuevoVasito.getContenido());
+		Assert.assertEquals(true, nuevoVasito.isTieneContenido());
+	}
 }

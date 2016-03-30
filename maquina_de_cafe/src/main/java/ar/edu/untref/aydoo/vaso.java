@@ -11,6 +11,7 @@ public class vaso {
 	
 	public void setContenido(String nuevoContenido){
 		this.contenido = nuevoContenido;
+		this.setTieneContenido(true);
 	}
 	
 	public String getContenido(){
