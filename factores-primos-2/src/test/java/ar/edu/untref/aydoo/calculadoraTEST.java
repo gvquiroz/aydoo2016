@@ -6,9 +6,10 @@ import java.util.Iterator;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class calculadoraTEST {
+public class calculadoraTest {
 	
-	private CalculadoraDePrimos calculadora = new CalculadoraDePrimos();
+
+	CalculadoraDePrimos calculadora = new CalculadoraDePrimos();
 	private ArrayList<Integer> resultadoEsperado = new ArrayList<Integer>();
 	
 	@Test
@@ -18,6 +19,7 @@ public class calculadoraTEST {
 		
 		
 		/*
+		 * 
 		 * Resultado esperado de la descomposicion de factores primos de 90 es 2 3 3 5
 		 */
 		
