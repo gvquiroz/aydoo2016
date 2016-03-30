@@ -10,7 +10,7 @@ public class vaso {
 	}
 	
 	public void setContenido(String nuevoContenido){
-		nuevoContenido = this.contenido;
+		this.contenido = nuevoContenido;
 	}
 	
 	public String getContenido(){

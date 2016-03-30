@@ -4,10 +4,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class hacedorDeCafeTest {
+	private vaso nuevoVasito = new vaso();
+	@Test
+	public void probandovasoSinContenido(){
+		Assert.assertEquals(false, nuevoVasito.isTieneContenido());
+	}
 	
 	@Test
 	public void probandoIngresarContenidoEnVaso(){
-		vaso nuevoVasito = new vaso();
-		Assert.assertEquals(false, nuevoVasito.isTieneContenido());
+		nuevoVasito.setContenido("cafe");
+		
+		Assert.assertEquals("cafe",nuevoVasito.getContenido());
 	}
 }
