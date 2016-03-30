@@ -24,4 +24,7 @@ public class hacedorDeCafeConLeche {
 		return this.termino;
 	}
 	
+	public vaso devolverVasito(){
+		return this.vasoRecibido;
+	}
 }

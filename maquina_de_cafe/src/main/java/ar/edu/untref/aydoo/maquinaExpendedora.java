@@ -33,5 +33,6 @@ public class maquinaExpendedora {
 		vasoDelUsuario = hacerCafeConLeche(vasoDelUsuario);
 		vasoDelUsuario = ponerN(vasoDelUsuario, azucar);
 		return vasoDelUsuario;
+		
 	}
 }

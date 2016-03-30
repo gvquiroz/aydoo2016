@@ -49,6 +49,13 @@ public class maquinaExpendedoraTest {
 		
 		Assert.assertEquals(2, nuevoVasito.getAzucar());
 	}
+	
+	@Test
+	public void probandoAzucareroDevolverVasito(){
+		azucareroTest.agregarAzucar(nuevoVasito, 2);
+		
+		Assert.assertEquals(2, this.azucareroTest.devolverVasito().getAzucar());
+	}
 	@Test
 	public void probandoAgregarAzucarYVaciarContenido(){
 		nuevoVasito.setContenido("cafe");
