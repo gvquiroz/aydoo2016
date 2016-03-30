@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class hacedorDeCafeTest {
+public class maquinaExpendedoraTest {
 	private vaso nuevoVasito = new vaso();
 	private hacedorDeCafeConLeche hacedor = new hacedorDeCafeConLeche();
 	private maquinaExpendedora maquina = new maquinaExpendedora();
@@ -75,7 +75,13 @@ public class hacedorDeCafeTest {
 	
 	@Test
 	public void probandoHacerCafeConMaquinaExpendedora(){
-		maquina.hacerCafeConLeche(nuevoVasito);
+		maquina.hacerCafeConLecheConNDeAzucar(nuevoVasito,0);
 		Assert.assertEquals("Cafe con leche", nuevoVasito.getContenido());
+	}
+	
+	@Test
+	public void probandoHacerCafeConMaquinaExpendedoraYAgregarleAzucar(){
+		maquina.hacerCafeConLecheConNDeAzucar(nuevoVasito,5);
+		Assert.assertEquals(5, nuevoVasito.getAzucar());
 	}
 }
