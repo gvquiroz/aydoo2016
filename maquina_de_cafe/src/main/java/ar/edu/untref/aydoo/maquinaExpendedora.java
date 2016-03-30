@@ -18,9 +18,8 @@ public class maquinaExpendedora {
 		this.nuevoHacedor = hacedorDeBebida;
 	}
 	
-	public vaso hacerCafeConLecheConNDeAzucar(vaso vasoDado, int cantidadDeAzucar){
+	public vaso hacerCafeConLeche(vaso vasoDado){
 		this.nuevoHacedor.prepararEnEsteVaso(vasoDado);
-		
 		return vasoDado;
 	}
 	
