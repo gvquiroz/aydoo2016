@@ -25,7 +25,8 @@ public class Program {
 			/*
 			 * Switch que reconoce el tipo de formato para la entrega de valores
 			 */
-	        switch (args[1]) {
+			String formatoDeDevolucion = args[1];
+	        switch (formatoDeDevolucion.toLowerCase()) {
 	         	case "--format=pretty":
 	 		    System.out.print("Factores primos: " + numero + ": ");
 	 			while (it.hasNext()){
