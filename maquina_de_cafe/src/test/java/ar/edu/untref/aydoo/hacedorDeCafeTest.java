@@ -54,6 +54,13 @@ public class hacedorDeCafeTest {
 	}
 	
 	@Test
+	public void probandoHacedorTengoVaso(){
+		Assert.assertEquals(false, hacedor.tengoVaso());
+		hacedor.prepararEnEsteVaso(nuevoVasito);
+		Assert.assertEquals(true, hacedor.tengoVaso());
+	}
+	
+	@Test
 	public void probandoHacedorPrepararEnEsteVaso(){
 		hacedor.prepararEnEsteVaso(nuevoVasito);
 		Assert.assertEquals("Cafe con leche", nuevoVasito.getContenido());
