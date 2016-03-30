@@ -6,7 +6,7 @@ import java.util.Iterator;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class calculadoraTest {
+public class factoresTest {
 	
 
 	CalculadoraDePrimos calculadora = new CalculadoraDePrimos();
