@@ -22,8 +22,11 @@ public class vaso {
 		return tieneContenido;
 	}
 
-	public void setTieneContenido(boolean tieneContenido) {
+	private void setTieneContenido(boolean tieneContenido) {
 		this.tieneContenido = tieneContenido;
+	}
+	public void vaciarContenido(){
+		this.tieneContenido = false;
 	}
 	
 }
