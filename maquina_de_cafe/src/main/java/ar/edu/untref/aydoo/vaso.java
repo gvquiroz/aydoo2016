@@ -4,9 +4,11 @@ public class vaso {
 	
 	private String contenido;
 	private boolean tieneContenido;
+	private int azucar;
 	
 	public vaso(){
 		this.tieneContenido = false;
+		this.setAzucar(0);
 	}
 	
 	public void setContenido(String nuevoContenido){
@@ -27,6 +29,14 @@ public class vaso {
 	}
 	public void vaciarContenido(){
 		this.tieneContenido = false;
+	}
+
+	public int getAzucar() {
+		return azucar;
+	}
+
+	public void setAzucar(int azucar) {
+		this.azucar = azucar;
 	}
 	
 }
