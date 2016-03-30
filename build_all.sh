@@ -1,4 +1,4 @@
-#!/bin/bash cacls  *.*  /t  /e  /g  everyone:f  
+#!/bin/bash
 set -e
 for dir in */ ; do
   cd $dir
