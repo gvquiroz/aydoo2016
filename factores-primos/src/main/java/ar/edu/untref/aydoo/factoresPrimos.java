@@ -3,8 +3,9 @@ package ar.edu.untref.aydoo;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Program {
-	 public static final void main(String args[]){
+public class factoresPrimos {
+	 public static final void main(String args[])
+	    {
 		 
 	        int numero = 0;
 	        try {
@@ -15,14 +16,13 @@ public class Program {
 	            System.exit(1);
 	        }
 	        CalculadoraDePrimos Calculadora = new CalculadoraDePrimos();
-	        Calculadora.calcularPrimos(numero);
 	        ArrayList<Integer> resultado  = Calculadora.getListaDeNumerosPrimos();
-	        System.out.print("Factores primos: " + numero + ": ");
+	        System.out.println("Numero primo ingresado: " + numero);
 			Iterator<Integer> it = resultado.iterator();
 			
 			while (it.hasNext()){
-				System.out.print(it.next() + " ");
+				System.out.print(" "+it.next());
 			}
-			System.out.println();
 	    }
+	 
 }
