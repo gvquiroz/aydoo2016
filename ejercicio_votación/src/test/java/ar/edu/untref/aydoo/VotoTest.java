@@ -27,15 +27,27 @@ public class VotoTest {
     
 	@Test
 	public void AgregandoCandidatoValido(){
-        nuevoVoto.setCandidatoYPartido("Otro Candidato","Partido Prueba");
+        nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
 		
-		Assert.assertEquals("Otro Candidato", nuevoVoto.getNombreCandidato());
+		Assert.assertEquals("Gabi", nuevoVoto.getNombreCandidato());
 	}
 	
 	@Test
 	public void AgregandoPartidoValido(){
-        nuevoVoto.setCandidatoYPartido("Gabi","Otro Partido");
+        nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
 		
-		Assert.assertEquals("Otro Partido", nuevoVoto.getPartido());
+		Assert.assertEquals("Partido Prueba", nuevoVoto.getPartido());
+	}
+	
+	@Test
+	public void ChequeoValidezDeCandidatoAgregado(){
+		nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
+		Assert.assertEquals("Valido", nuevoVoto.validezDelVoto());
+	}
+	
+	@Test
+	public void ChequeoVotoNuloConCandidatoNoExistente(){
+		nuevoVoto.setCandidatoYPartido("Pepe","Partido Prueba");
+		Assert.assertEquals("Nulo", nuevoVoto.validezDelVoto());
 	}
 }

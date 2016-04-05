@@ -29,6 +29,13 @@ public class Voto {
 		this.Candidato = nombreDeMiCandidato;
 		this.Partido = nombreDeMiPartido;
 		
+		if (PosiblesCandidatos.containsKey(nombreDeMiCandidato) &&
+			PosiblesCandidatos.containsValue(nombreDeMiPartido)){
+			this.EstadoDelVoto = "Valido";
+		} else {
+			this.EstadoDelVoto = "Nulo";
+		}
+		
 	}
 	
 	public String validezDelVoto(){
