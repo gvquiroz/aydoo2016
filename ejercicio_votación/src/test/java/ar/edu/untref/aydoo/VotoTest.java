@@ -20,9 +20,19 @@ public class VotoTest {
 	
 	@Test
 	public void AgregandoCandidatoValido(){
+		miCandidato.setNombre("Otro Candidato");
 		
 		nuevoVoto.setCandidato(miCandidato);
-		Assert.assertEquals("Gabi", nuevoVoto.getNombreCandidato());
 		
+		Assert.assertEquals("Otro Candidato", nuevoVoto.getNombreCandidato());
+	}
+	
+	@Test
+	public void AgregandoPartidoValido(){
+		miCandidato.setPartido("Otro Partido");
+		
+		nuevoVoto.setCandidato(miCandidato);
+		
+		Assert.assertEquals("Otro Partido", nuevoVoto.getPartido());
 	}
 }

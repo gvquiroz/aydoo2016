@@ -15,5 +15,9 @@ public class Candidato {
 
 	public String getNombre() {
 		return this.Nombre;
+	}
+
+	public String getPartido() {
+		return this.Partido;
 	} 
 }

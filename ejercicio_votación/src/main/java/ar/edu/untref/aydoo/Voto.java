@@ -13,4 +13,9 @@ public class Voto {
 		return this.miCandidato.getNombre();
 	}
 
+	public String getPartido() {
+		// TODO Auto-generated method stub
+		return miCandidato.getPartido();
+	}
+
 }
