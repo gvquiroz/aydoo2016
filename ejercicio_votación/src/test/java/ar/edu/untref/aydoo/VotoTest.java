@@ -56,4 +56,10 @@ public class VotoTest {
 		nuevoVoto.setCandidatoYPartido("Gabi","Partido Gabi");
 		Assert.assertEquals("Nulo", nuevoVoto.validezDelVoto());
 	}
+	
+	@Test
+	public void ChequeoVotoEnBlanco(){
+		nuevoVoto.setCandidatoYPartido("","Partido Gabi");
+		Assert.assertEquals("Blanco", nuevoVoto.validezDelVoto());
+	}
 }
