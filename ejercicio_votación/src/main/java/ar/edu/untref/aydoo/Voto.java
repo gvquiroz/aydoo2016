@@ -1,21 +1,32 @@
 package ar.edu.untref.aydoo;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class Voto {
 
-	private Candidato miCandidato;
-	
-	public void setCandidato(Candidato nuevoCandidato) {
-		this.miCandidato = nuevoCandidato;
+	private Map<String,String> PosiblesCandidatos;
+	private String Candidato;
+	private String Partido;
+
+	public Voto(Map<String,String> candidatosValidos) {
+		this.PosiblesCandidatos = candidatosValidos;
 	}
 
+	
+	
 	public String getNombreCandidato() {
-		
-		return this.miCandidato.getNombre();
+		return this.Candidato;
 	}
 
 	public String getPartido() {
-		// TODO Auto-generated method stub
-		return miCandidato.getPartido();
+		return this.Partido;
+	}
+
+	public void setCandidatoYPartido(String nombreDeMiCandidato,String nombreDeMiPartido) {
+		this.Candidato = nombreDeMiCandidato;
+		this.Partido = nombreDeMiPartido;
 	}
 
 }
