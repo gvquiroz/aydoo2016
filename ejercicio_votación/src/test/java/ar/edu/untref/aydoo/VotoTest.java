@@ -50,4 +50,10 @@ public class VotoTest {
 		nuevoVoto.setCandidatoYPartido("Pepe","Partido Prueba");
 		Assert.assertEquals("Nulo", nuevoVoto.validezDelVoto());
 	}
+	
+	@Test
+	public void ChequeoVotoNuloConCandidatoEnUnPartidoNoExistente(){
+		nuevoVoto.setCandidatoYPartido("Gabi","Partido Gabi");
+		Assert.assertEquals("Nulo", nuevoVoto.validezDelVoto());
+	}
 }
