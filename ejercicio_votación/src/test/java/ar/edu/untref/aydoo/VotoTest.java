@@ -14,11 +14,16 @@ public class VotoTest {
 	
     @Before 
     public void initialize() {
-        nuevoVoto = new Voto(null);
-        Map<String,String> PosiblesCandidatos = new HashMap<>();
-        
-        nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
+    	Map<String,String> PosiblesCandidatos = new HashMap<>();
+        PosiblesCandidatos.put("Gabi","Partido Prueba");
+    	
+        nuevoVoto = new Voto(PosiblesCandidatos);
      }
+    
+    @Test
+    public void VotoSinCandidatoNiPartido(){
+    	Assert.assertEquals("Vacio", nuevoVoto.validezDelVoto());
+    }
     
 	@Test
 	public void AgregandoCandidatoValido(){

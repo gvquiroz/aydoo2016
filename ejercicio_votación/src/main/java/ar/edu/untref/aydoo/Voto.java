@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Map;
 
 public class Voto {
@@ -9,9 +8,11 @@ public class Voto {
 	private Map<String,String> PosiblesCandidatos;
 	private String Candidato;
 	private String Partido;
+	private String EstadoDelVoto;
 
 	public Voto(Map<String,String> candidatosValidos) {
 		this.PosiblesCandidatos = candidatosValidos;
+		this.EstadoDelVoto = "Vacio";
 	}
 
 	
@@ -27,6 +28,11 @@ public class Voto {
 	public void setCandidatoYPartido(String nombreDeMiCandidato,String nombreDeMiPartido) {
 		this.Candidato = nombreDeMiCandidato;
 		this.Partido = nombreDeMiPartido;
+		
 	}
-
+	
+	public String validezDelVoto(){
+		return this.EstadoDelVoto;
+	}
+	
 }
