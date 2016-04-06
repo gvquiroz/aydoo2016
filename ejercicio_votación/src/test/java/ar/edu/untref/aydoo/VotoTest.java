@@ -21,44 +21,44 @@ public class VotoTest {
      }
     
     @Test
-    public void VotoSinCandidatoNiPartido(){
+    public void votoSinCandidatoNiPartido(){
     	Assert.assertEquals("Vacio", nuevoVoto.validezDelVoto());
     }
     
 	@Test
-	public void AgregandoCandidatoValido(){
+	public void agregandoCandidatoValido(){
         nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
 		
 		Assert.assertEquals("Gabi", nuevoVoto.getNombreCandidato());
 	}
 	
 	@Test
-	public void AgregandoPartidoValido(){
+	public void agregandoPartidoValido(){
         nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
 		
 		Assert.assertEquals("Partido Prueba", nuevoVoto.getPartido());
 	}
 	
 	@Test
-	public void ChequeoValidezDeCandidatoAgregado(){
+	public void chequeoValidezDeCandidatoAgregado(){
 		nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
 		Assert.assertEquals("Valido", nuevoVoto.validezDelVoto());
 	}
 	
 	@Test
-	public void ChequeoVotoNuloConCandidatoNoExistente(){
+	public void chequeoVotoNuloConCandidatoNoExistente(){
 		nuevoVoto.setCandidatoYPartido("Pepe","Partido Prueba");
 		Assert.assertEquals("Nulo", nuevoVoto.validezDelVoto());
 	}
 	
 	@Test
-	public void ChequeoVotoNuloConCandidatoEnUnPartidoNoExistente(){
+	public void chequeoVotoNuloConCandidatoEnUnPartidoNoExistente(){
 		nuevoVoto.setCandidatoYPartido("Gabi","Partido Gabi");
 		Assert.assertEquals("Nulo", nuevoVoto.validezDelVoto());
 	}
 	
 	@Test
-	public void ChequeoVotoEnBlanco(){
+	public void chequeoVotoEnBlanco(){
 		nuevoVoto.setCandidatoYPartido("","Partido Gabi");
 		Assert.assertEquals("Blanco", nuevoVoto.validezDelVoto());
 	}
