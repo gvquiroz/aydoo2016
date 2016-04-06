@@ -25,13 +25,13 @@ public class UrnaElectoralTest {
      }
     
     @Test
-    public void sumoUnNuevoVoto(){
+    public void SumoUnNuevoVoto(){
     	nuevaUrna.addVoto(nuevoVoto);
     	Assert.assertEquals(1, nuevaUrna.cantidadDeVotos());
     }
     
     @Test
-    public void sumoDosVotos(){
+    public void SumoDosVotos(){
     	Map<String,String> PosiblesCandidatos = new HashMap<>();
     	Voto PrimerVoto = new Voto(PosiblesCandidatos);
     	Voto SegundoVoto = new Voto(PosiblesCandidatos);
