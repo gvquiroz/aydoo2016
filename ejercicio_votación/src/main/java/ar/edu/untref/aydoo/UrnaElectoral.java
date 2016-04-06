@@ -6,7 +6,7 @@ import java.util.List;
 public class UrnaElectoral {
 
 	
-	List<Voto> Votos = new LinkedList<>();
+	private List<Voto> Votos = new LinkedList<>();
 	private String provinciaEnDondeEstaLaUrna ;
 	
 	public UrnaElectoral(String provincia) {
@@ -25,6 +25,10 @@ public class UrnaElectoral {
 	
 	public String enQuePronviciaEstaLaUrna(){
 		return this.provinciaEnDondeEstaLaUrna;
+	}
+	
+	public List<Voto> getTotalidadDeVotos(){
+		return this.Votos;
 	}
 	
 }
