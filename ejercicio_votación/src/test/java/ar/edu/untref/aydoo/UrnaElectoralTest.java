@@ -12,13 +12,15 @@ public class UrnaElectoralTest {
 	
     private UrnaElectoral nuevaUrna;
 	private Voto nuevoVoto;
+	private String Provincia;
 
 	@Before 
     public void initialize() {
     	Map<String,String> PosiblesCandidatos = new HashMap<>();
         PosiblesCandidatos.put("Gabi","Partido Prueba");
-    	
-        nuevaUrna = new UrnaElectoral();
+    	this.Provincia = "Buenos Aires";
+        
+        nuevaUrna = new UrnaElectoral(Provincia);
         nuevoVoto = new Voto(PosiblesCandidatos);
      }
     
@@ -38,6 +40,11 @@ public class UrnaElectoralTest {
     	nuevaUrna.addVoto(SegundoVoto);
     	
     	Assert.assertEquals(2, nuevaUrna.cantidadDeVotos());
+    }
+    
+    @Test
+    public void chequeoDePronviciaDeLaUrna(){
+    	Assert.assertEquals("Buenos Aires", nuevaUrna.enQuePronviciaEstaLaUrna());
     }
     
 }
