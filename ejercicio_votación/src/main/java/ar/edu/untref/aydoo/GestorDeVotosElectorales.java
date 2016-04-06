@@ -25,6 +25,18 @@ public class GestorDeVotosElectorales {
 	public UrnaElectoral getUrnaElectoralEnPosicion(int posicion){
 		return this.UrnasElectorales.get(posicion);
 	}
+	
+	public int cantidadDeVotosRegistrados(){
+		
+		Set<Voto> VotosRegistrados = new HashSet<>();
+		Iterator<UrnaElectoral> it = UrnasElectorales.iterator();
+		
+		while (it.hasNext()){
+			VotosRegistrados.addAll(it.next().getTotalidadDeVotos());
+		}
+		
+		return VotosRegistrados.size();
+	}
 
 	public String candidatoConMasVotosObetnidosANivelNacional() {
 		
@@ -44,13 +56,9 @@ public class GestorDeVotosElectorales {
 			
 			if(votoARegistrar.validezDelVoto() == "Valido"){
 				if (contadorDeVotosCandidatos.containsKey(nombreDelCandidato)){
-					
 					contadorDeVotosCandidatos.put(nombreDelCandidato, contadorDeVotosCandidatos.get(nombreDelCandidato)+1);
-					
 				} else {
-					
 					contadorDeVotosCandidatos.put(nombreDelCandidato, 1);
-					
 				}
 			}
 		}
@@ -67,6 +75,8 @@ public class GestorDeVotosElectorales {
 		
 		return this.ganadorANivelNacional;
 	}
+	
+	
 	
 	public String PartidoEnProvincia(String provincia){
 		
@@ -91,13 +101,9 @@ public class GestorDeVotosElectorales {
 			
 			if(votoARegistrar.validezDelVoto() == "Valido"){
 				if (contadorDeVotosPartidosDeCiertaProvincia.containsKey(nombreDelPartido)){
-					
 					contadorDeVotosPartidosDeCiertaProvincia.put(nombreDelPartido, contadorDeVotosPartidosDeCiertaProvincia.get(nombreDelPartido)+1);
-					
 				} else {
-					
 					contadorDeVotosPartidosDeCiertaProvincia.put(nombreDelPartido, 1);
-					
 				}
 			}
 		}

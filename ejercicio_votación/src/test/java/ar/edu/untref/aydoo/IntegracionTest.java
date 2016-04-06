@@ -23,6 +23,7 @@ public class IntegracionTest {
         nuevaUrna = new UrnaElectoral(Provincia);
         nuevoVoto = new Voto(PosiblesCandidatos);
         gestorPrincipal = new GestorDeVotosElectorales();
+        
      }
 	
 	@Test
@@ -30,9 +31,8 @@ public class IntegracionTest {
 		nuevoVoto.setCandidatoYPartido("Gabi","Partido Prueba");
 		nuevaUrna.addVoto(nuevoVoto);
 		gestorPrincipal.addUrnaElectoral(nuevaUrna);
-		/*
-		 * Terminar
-		 */
+
+		Assert.assertEquals(1, gestorPrincipal.cantidadDeVotosRegistrados());
 	}
 	
 	@Test
