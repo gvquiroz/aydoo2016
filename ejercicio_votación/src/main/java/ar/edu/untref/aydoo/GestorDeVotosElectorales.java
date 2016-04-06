@@ -12,6 +12,7 @@ public class GestorDeVotosElectorales {
 
 	private String ganadorANivelNacional;
 	private List<UrnaElectoral> UrnasElectorales = new LinkedList<>();
+	private String partidoGanadorEnProvincia;
 	
 	public void addUrnaElectoral(UrnaElectoral nuevaUrna) {
 		this.UrnasElectorales.add(nuevaUrna);
@@ -65,5 +66,52 @@ public class GestorDeVotosElectorales {
 		}
 		
 		return this.ganadorANivelNacional;
+	}
+	
+	public String PartidoEnProvincia(String provincia){
+		
+		Set<Voto> VotosRegistrados = new HashSet<>();
+    	Map<String,Integer> contadorDeVotosPartidosDeCiertaProvincia = new HashMap<>();
+    	
+		Iterator<UrnaElectoral> it = UrnasElectorales.iterator();
+		while (it.hasNext()){
+			UrnaElectoral UrnaARegistrar = it.next();
+			
+			if (UrnaARegistrar.enQuePronviciaEstaLaUrna() == provincia){
+				VotosRegistrados.addAll(UrnaARegistrar.getTotalidadDeVotos());
+				
+			}
+		}
+		
+		Iterator<Voto> itDeVotos = VotosRegistrados.iterator();
+		
+		while(itDeVotos.hasNext()){
+			Voto votoARegistrar = itDeVotos.next();
+			String nombreDelPartido = votoARegistrar.getPartido();
+			
+			if(votoARegistrar.validezDelVoto() == "Valido"){
+				if (contadorDeVotosPartidosDeCiertaProvincia.containsKey(nombreDelPartido)){
+					
+					contadorDeVotosPartidosDeCiertaProvincia.put(nombreDelPartido, contadorDeVotosPartidosDeCiertaProvincia.get(nombreDelPartido)+1);
+					
+				} else {
+					
+					contadorDeVotosPartidosDeCiertaProvincia.put(nombreDelPartido, 1);
+					
+				}
+			}
+		}
+		
+		int entry = 0;
+		for (String key  : contadorDeVotosPartidosDeCiertaProvincia.keySet()) {
+			
+			if (contadorDeVotosPartidosDeCiertaProvincia.get(key)> entry){
+				entry = contadorDeVotosPartidosDeCiertaProvincia.get(key);
+				this.partidoGanadorEnProvincia = key;
+			}
+		}
+		
+		return partidoGanadorEnProvincia;
+		
 	}
 }

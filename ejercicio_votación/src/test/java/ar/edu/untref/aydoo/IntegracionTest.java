@@ -75,9 +75,7 @@ public class IntegracionTest {
 	
 	@Test
 	public void PartidoConMasVotosEnProvinciaDada(){
-		String provinciaUno = "Buenos Aires";
-		String provinciaDos = "Santa fe";
-		
+
 		Map<String,String> PosiblesCandidatos = new HashMap<>();
         PosiblesCandidatos.put("Candidato Uno","Partido Uno");
         PosiblesCandidatos.put("Candidato Dos","Partido Dos");
@@ -87,10 +85,11 @@ public class IntegracionTest {
     	Voto VotoTres = new Voto(PosiblesCandidatos);
     	Voto VotoCuatro = new Voto(PosiblesCandidatos);
     	Voto VotoCinco = new Voto(PosiblesCandidatos);
-        UrnaElectoral UrnaUno = new UrnaElectoral(provinciaUno);
-        UrnaElectoral UrnaDos = new UrnaElectoral(provinciaDos);
     	
-        VotoUno.setCandidatoYPartido("Candidato Uno","Partido Uno");
+        UrnaElectoral UrnaUno = new UrnaElectoral("Buenos Aires");
+        UrnaElectoral UrnaDos = new UrnaElectoral("San Luis");
+    	
+        VotoUno.setCandidatoYPartido("Candidato Dos","Partido Dos");
         VotoDos.setCandidatoYPartido("Candidato Dos","Partido Dos");
         VotoTres.setCandidatoYPartido("Candidato Uno","Partido Uno");
         VotoCuatro.setCandidatoYPartido("Candidato Uno","Partido Uno");
@@ -105,6 +104,10 @@ public class IntegracionTest {
         
         gestorPrincipal.addUrnaElectoral(UrnaUno);
         gestorPrincipal.addUrnaElectoral(UrnaDos);
+        
+        String partidoGanadorEnProvincia = gestorPrincipal.PartidoEnProvincia("San Luis");
+        Assert.assertEquals("Partido Uno", partidoGanadorEnProvincia);
+        
 	}
 	
 }
