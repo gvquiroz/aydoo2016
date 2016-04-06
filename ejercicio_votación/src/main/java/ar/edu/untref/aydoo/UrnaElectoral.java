@@ -5,6 +5,7 @@ import java.util.List;
 
 public class UrnaElectoral {
 
+	
 	List<Voto> Votos = new LinkedList<>();
 	
 	public void addVoto(Voto nuevoVoto) {

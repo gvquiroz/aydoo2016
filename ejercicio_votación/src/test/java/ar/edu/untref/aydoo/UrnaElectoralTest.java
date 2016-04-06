@@ -28,4 +28,16 @@ public class UrnaElectoralTest {
     	Assert.assertEquals(1, nuevaUrna.cantidadDeVotos());
     }
     
+    @Test
+    public void SumoDosVotos(){
+    	Map<String,String> PosiblesCandidatos = new HashMap<>();
+    	Voto PrimerVoto = new Voto(PosiblesCandidatos);
+    	Voto SegundoVoto = new Voto(PosiblesCandidatos);
+    	
+    	nuevaUrna.addVoto(PrimerVoto);
+    	nuevaUrna.addVoto(SegundoVoto);
+    	
+    	Assert.assertEquals(2, nuevaUrna.cantidadDeVotos());
+    }
+    
 }
