@@ -44,4 +44,8 @@ public class Voto {
 		return this.EstadoDelVoto;
 	}
 	
+	public boolean estadoDelVoto(){
+		return true;
+	}
+	
 }

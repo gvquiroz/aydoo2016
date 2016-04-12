@@ -22,10 +22,6 @@ public class GestorDeVotosElectorales {
 		return this.UrnasElectorales.size();
 	}
 
-	public UrnaElectoral getUrnaElectoralEnPosicion(int posicion){
-		return this.UrnasElectorales.get(posicion);
-	}
-	
 	public int cantidadDeVotosRegistrados(){
 		
 		Set<Voto> VotosRegistrados = new HashSet<>();
