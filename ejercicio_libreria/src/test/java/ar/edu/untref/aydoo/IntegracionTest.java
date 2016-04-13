@@ -18,23 +18,10 @@ public class IntegracionTest {
 	
 	@Before
 	public void initialize(){
-		/*
-		Revista Barcelona $20 cada ejemplar, frecuencia 15 quicenal
-
-		Revista El Gráfico, $30 cada ejemplar, frecuencia mensual
-
-		Libro El Hobbit $50 
-
-		Lapicera $5 (al precio de venta hay que sumarle 21% de IVA)
-
-		Diario Página12,  $12 cada ejemplar, frecuencia diaria
-
-		Diario Clarín $13 cada ejemplar, frecuencia diaria
-		 */
 		Barcelona = new Revista(20,"quincenal");
 		ElGrafico = new Revista(30, "mensual");
-		Hobbit = new Libro(50);
-		Lapicera = new ArticuloDeLibreria(5);
+		Hobbit = new Libro(50,"unica");
+		Lapicera = new ArticuloDeLibreria(5,"unica");
 		Pagina12 = new Periodico(12,"diaria");
 		Clarin = new Periodico(13,"diaria");
 		
@@ -44,7 +31,6 @@ public class IntegracionTest {
 		miLibreria = new Libreria();
 		miLibreria.addCliente(Juan);
 		miLibreria.addCliente(Maria);
-
 	}
 	
 	@Test
@@ -56,7 +42,6 @@ public class IntegracionTest {
 		Assert.assertEquals(0, montoACobrar,0.01);
 	}
 	
-	
 	@Test
 	public void calculandoMontoACobrarConUnArticuloDeLibreria(){
 		miLibreria.nuevaCompra(new Compra(Juan, Lapicera, 2, "marzo"));
@@ -65,9 +50,38 @@ public class IntegracionTest {
 		
 		Assert.assertEquals(12.1, montoACobrar,0.01);
 	}
+
 	
 	@Test
-	public void probandoCalcularMontoACobrarDeJuan(){
+	public void calculandoMontoDeMariaComprandoUnEjemplar(){
+		miLibreria.nuevaCompra(new Compra(Maria, Pagina12, 1, "enero"));
+		
+		double montoACobrar =  miLibreria.CalcularMontoACrobar("enero", Maria);
+		
+		Assert.assertEquals(12, montoACobrar,0.01);
+	}
+	
+	@Test
+	public void calculandoMontoACobrarConSuscripcionesYProductos(){
+		miLibreria.nuevaCompra(new Compra(Juan, Hobbit, 1, "agosto"));
+		miLibreria.nuevaSuscripcion(new Suscripcion(Juan, Barcelona, "agosto"));
+		
+		double montoACobrar = miLibreria.CalcularMontoACrobar("agosto", Juan);
+		
+		Assert.assertEquals(90, montoACobrar,0.01);
+	}
+	
+	@Test
+	public void calculandoMontoACobrarConSuscripcionDiaria(){
+		miLibreria.nuevaSuscripcion(new Suscripcion(Juan, Clarin, "agosto"));
+		
+		double montoACobrar = miLibreria.CalcularMontoACrobar("agosto", Juan);
+		
+		Assert.assertEquals(390, montoACobrar,0.01);
+	}
+	
+	@Test
+	public void probandoCalcularMontoACobrarDeJuanCaso1(){
 		miLibreria.nuevaCompra(new Compra(Juan, Hobbit, 1, "agosto"));
 		miLibreria.nuevaCompra(new Compra(Juan, Lapicera, 2, "agosto"));
 		miLibreria.nuevaCompra(new Compra(Juan, ElGrafico, 1, "agosto"));
@@ -78,11 +92,13 @@ public class IntegracionTest {
 	}
 	
 	@Test
-	public void calculandoMontoDeMariaComprandoUnEjemplar(){
+	public void probandoCalcularMontoACobrarMariaCaso2(){
 		miLibreria.nuevaCompra(new Compra(Maria, Pagina12, 1, "enero"));
+		miLibreria.nuevaSuscripcion(new Suscripcion(Maria, Barcelona,"enero", "anual"));
 		
-		double montoACobrar =  miLibreria.CalcularMontoACrobar("enero", Maria);
+		double montoACobrar = miLibreria.CalcularMontoACrobar("enero", Maria);
 		
-		Assert.assertEquals(12, montoACobrar,0.01);
+		Assert.assertEquals(44, montoACobrar,0.01);
 	}
+	
 }

@@ -2,9 +2,8 @@ package ar.edu.untref.aydoo;
 
 public class ArticuloDeLibreria extends Producto{
 
-	public ArticuloDeLibreria(double precio) {
-		super(precio);
-		// TODO Auto-generated constructor stub
+	public ArticuloDeLibreria(double precio ,String periodicidad) {
+		super(precio, periodicidad);
 	}
 
 	public double getPrecio(){

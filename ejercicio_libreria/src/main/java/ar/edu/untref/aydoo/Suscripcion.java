@@ -5,12 +5,20 @@ public class Suscripcion {
 	private Producto nuevoProducto;
 	private String periodicidad; 
 	private String mes;
+	private String tiempoDeSuscripcion;
 	
-	public Suscripcion(Cliente nuevoCliente, Producto nuevoProducto, String periodicidad, String mes){
+	public Suscripcion(Cliente nuevoCliente, Producto nuevoProducto, String mes){
 		this.setMiCliente(nuevoCliente);
 		this.setNuevoProducto(nuevoProducto);
-		this.setPeriodicidad(periodicidad);
+		this.setPeriodicidad(nuevoProducto.getPeriodicidad());
 		this.setMes(mes);
+	}
+	public Suscripcion(Cliente nuevoCliente, Producto nuevoProducto, String mes, String tiempoDeSuscripcion){
+		this.setMiCliente(nuevoCliente);
+		this.setNuevoProducto(nuevoProducto);
+		this.setPeriodicidad(nuevoProducto.getPeriodicidad());
+		this.setMes(mes);
+		this.setTiempoDeSuscripcion(tiempoDeSuscripcion);
 	}
 
 	public Cliente getMiCliente() {
@@ -53,7 +61,14 @@ public class Suscripcion {
 			case "mensual":
 				cantidadDeEjemplares = 1;
 				break;
+				
 		}
 		return cantidadDeEjemplares;
+	}
+	public String getTiempoDeSuscripcion() {
+		return tiempoDeSuscripcion;
+	}
+	private void setTiempoDeSuscripcion(String tiempoDeSuscripcion) {
+		this.tiempoDeSuscripcion = tiempoDeSuscripcion;
 	}
 }
