@@ -51,7 +51,6 @@ public class IntegracionTest {
 		Assert.assertEquals(12.1, montoACobrar,0.01);
 	}
 
-	
 	@Test
 	public void calculandoMontoDeMariaComprandoUnEjemplar(){
 		miLibreria.nuevaCompra(new Compra(Maria, Pagina12, 1, "enero"));

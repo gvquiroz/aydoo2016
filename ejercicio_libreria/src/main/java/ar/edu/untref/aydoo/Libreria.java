@@ -38,7 +38,6 @@ public class Libreria {
 		}
 		return montoACobrar - montoDescuento;
 	}
-
 	public void nuevaSuscripcion(Suscripcion nuevaSuscripcion) {
 		listaDeSuscripciones.add(nuevaSuscripcion);
 	}

@@ -20,35 +20,27 @@ public class Suscripcion {
 		this.setMes(mes);
 		this.setTiempoDeSuscripcion(tiempoDeSuscripcion);
 	}
-
 	public Cliente getMiCliente() {
 		return miCliente;
 	}
-
 	private void setMiCliente(Cliente miCliente) {
 		this.miCliente = miCliente;
 	}
-
 	public Producto getNuevoProducto() {
 		return nuevoProducto;
 	}
-
 	private void setNuevoProducto(Producto nuevoProducto) {
 		this.nuevoProducto = nuevoProducto;
 	}
-
 	private void setPeriodicidad(String periodicidad) {
 		this.periodicidad = periodicidad;
 	}
-
 	public String getMes() {
 		return mes;
 	}
-
 	private void setMes(String mes) {
 		this.mes = mes;
 	}
-
 	public int getCantidadDeEjemplaresPorMes() {
 		int cantidadDeEjemplares = 0;
 		switch (this.periodicidad){
@@ -61,7 +53,6 @@ public class Suscripcion {
 			case "mensual":
 				cantidadDeEjemplares = 1;
 				break;
-				
 		}
 		return cantidadDeEjemplares;
 	}
