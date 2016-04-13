@@ -9,6 +9,12 @@ public class IntegracionTest {
 	Libreria miLibreria;
 	Cliente Juan;
 	Cliente Maria;
+	Revista Barcelona;
+	Revista ElGrafico;
+	Libro Hobbit;
+	ArticuloDeLibreria Lapicera;
+	Periodico Pagina12;
+	Periodico Clarin;
 	@Before
 	public void initialize(){
 		/*
@@ -24,12 +30,12 @@ public class IntegracionTest {
 
 		Diario Clarín $13 cada ejemplar, frecuencia diaria
 		 */
-		Revista Barcelona = new Revista(20,"quincenal");
-		Revista ElGrafico = new Revista(30, "mensual");
-		Libro Hobbit = new Libro(50);
-		ArticuloDeLibreria Lapicera = new ArticuloDeLibreria(5);
-		Periodico Pagina12 = new Periodico(12,"diaria");
-		Periodico Clarin = new Periodico(13,"diaria");
+		Barcelona = new Revista(20,"quincenal");
+		ElGrafico = new Revista(30, "mensual");
+		Hobbit = new Libro(50);
+		Lapicera = new ArticuloDeLibreria(5);
+		Pagina12 = new Periodico(12,"diaria");
+		Clarin = new Periodico(13,"diaria");
 		
 		Juan = new Cliente("Juan");
 		Maria = new Cliente("Maria");
@@ -37,14 +43,39 @@ public class IntegracionTest {
 		miLibreria = new Libreria();
 		miLibreria.addCliente(Juan);
 		miLibreria.addCliente(Maria);
-		miLibreria.nuevaCompra(new Compra(Juan, Hobbit, 1, "agosto"));
-		miLibreria.nuevaCompra(new Compra(Juan, Lapicera, 2, "agosto"));
-		miLibreria.nuevaCompra(new Compra(Juan, ElGrafico, 1, "agosto"));
+
+		
+		miLibreria.nuevaCompra(new Compra(Maria, Pagina12, 1, "enero"));
+
+	}
+	
+	@Test
+	public void calculandoMontoDeMesSinCompras(){
+		miLibreria.nuevaCompra(new Compra(Juan, Lapicera, 2, "marzo"));
+		
+		double montoACobrarEnAgosto = miLibreria.CalcularMontoACrobar("diciembre", Juan);
+		
+		Assert.assertEquals(0, montoACobrarEnAgosto,0.01);
+	}
+	
+	
+	@Test
+	public void calculandoMontoACobrarConUnArticuloDeLibreria(){
+		miLibreria.nuevaCompra(new Compra(Juan, Lapicera, 2, "marzo"));
+		
+		double montoACobrarEnAgosto = miLibreria.CalcularMontoACrobar("marzo", Juan);
+		
+		Assert.assertEquals(12.1, montoACobrarEnAgosto,0.01);
 	}
 	
 	@Test
 	public void probandoCalcularMontoACobrarDeJuan(){
+		miLibreria.nuevaCompra(new Compra(Juan, Hobbit, 1, "agosto"));
+		miLibreria.nuevaCompra(new Compra(Juan, Lapicera, 2, "agosto"));
+		miLibreria.nuevaCompra(new Compra(Juan, ElGrafico, 1, "agosto"));
+		
 		double montoACobrarEnAgosto = miLibreria.CalcularMontoACrobar("agosto", Juan);
+		
 		Assert.assertEquals(92.1, montoACobrarEnAgosto,0.01);
 	}
 }
