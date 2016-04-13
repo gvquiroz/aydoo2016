@@ -15,6 +15,7 @@ public class IntegracionTest {
 	ArticuloDeLibreria Lapicera;
 	Periodico Pagina12;
 	Periodico Clarin;
+	
 	@Before
 	public void initialize(){
 		/*
