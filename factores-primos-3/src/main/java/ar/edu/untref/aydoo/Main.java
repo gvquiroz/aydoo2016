@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Main {
 	public static final void main(String args[]) {
-		String ordenDefault = "--sort:asc";
-		String formatoDefault = "--format=pretty";
+		String ordenDefault = "asc";
+		String formatoDefault = "pretty";
 		ArrayList<Integer> resultadoDelCalculo = new ArrayList<>();
 		String resultado = "";
 		
@@ -25,10 +25,13 @@ public class Main {
         
         
         if (args.length == 1){
-			resultadoDelCalculo.addAll(Calculadora.getListaDeNumerosPrimosDeFormaAscendente());
+			resultadoDelCalculo.addAll(Calculadora.getListaDeNumerosPrimos(ordenDefault));
 			resultado = formateador.getDatosConFormato(resultadoDelCalculo, formatoDefault);
 			System.out.print("Factores primos " + numero + ": ");
 			System.out.println(resultado);
         }
+        
+        
+        
 	}
 }

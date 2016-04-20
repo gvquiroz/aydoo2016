@@ -10,13 +10,13 @@ public class GestorDeFormatos {
 		Iterator<Integer> it = nuevosValores.iterator();
 		
 		switch(formato.toLowerCase()){
-			case "--format=pretty":
+			case "pretty":
 				while(it.hasNext()){
 					resultado += it.next()+" ";
 				}
 				break;
 			
-			case "--format=quiett":
+			case "quiett":
 				while(it.hasNext()){
 					resultado += it.next()+"\n";
 				}

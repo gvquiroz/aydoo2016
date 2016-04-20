@@ -21,18 +21,24 @@ public class CalculadoraDePrimos {
 	/*
 	 * Devuelve el array con numeros calculados en calcularPrimos
 	 */
-	public ArrayList<Integer> getListaDeNumerosPrimos(){
-		return listaDeNumerosPrimos;
+	public ArrayList<Integer> getListaDeNumerosPrimos(String orden){
+		ArrayList<Integer> resultado = new ArrayList<Integer>();
+		if (orden == "asc"){
+			resultado = this.getListaDeNumerosPrimosDeFormaAscendente();
+		} else if (orden == "des"){
+			resultado = this.getListaDeNumerosPrimosDeFormaDescendente();
+		}
+		return resultado;
 	}
 	
-	public ArrayList<Integer> getListaDeNumerosPrimosDeFormaAscendente(){
+	private ArrayList<Integer> getListaDeNumerosPrimosDeFormaAscendente(){
 		ArrayList<Integer> resultadoAscendente = new ArrayList<Integer>();
    	 	for(int j = this.listaDeNumerosPrimos.size() - 1; j >= 0; j--){
    	 		resultadoAscendente.add(this.listaDeNumerosPrimos.get(j));
    	 	}
 		return resultadoAscendente;
 	}
-	public ArrayList<Integer> getListaDeNumerosPrimosDeFormaDescendente(){
+	private ArrayList<Integer> getListaDeNumerosPrimosDeFormaDescendente(){
 		return this.listaDeNumerosPrimos;
 	}
 }

@@ -17,7 +17,7 @@ public class GestorDeFormatosTest {
 		
 		GestorDeFormatos Formateador = new GestorDeFormatos();
 		
-		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba,"--format=Pretty");
+		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba,"Pretty");
 		
 		Assert.assertEquals(resultadoEsperado,resultadoActual);
 	}
@@ -32,7 +32,7 @@ public class GestorDeFormatosTest {
 		
 		GestorDeFormatos Formateador = new GestorDeFormatos();
 		
-		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba,"--format=Quiett");
+		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba,"Quiett");
 		
 		Assert.assertEquals(resultadoEsperado,resultadoActual);
 	}

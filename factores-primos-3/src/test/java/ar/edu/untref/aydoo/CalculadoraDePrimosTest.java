@@ -21,7 +21,7 @@ public class CalculadoraDePrimosTest {
 		
 		calculadora.calcularPrimos(90);
 
-		ArrayList<Integer> resultado  = calculadora.getListaDeNumerosPrimos();
+		ArrayList<Integer> resultado  = calculadora.getListaDeNumerosPrimos("des");
 		Assert.assertEquals(resultadoEsperado, resultado);
 		
 	}
@@ -40,7 +40,7 @@ public class CalculadoraDePrimosTest {
 		
 		calculadora.calcularPrimos(360);
 
-		ArrayList<Integer> resultado  = calculadora.getListaDeNumerosPrimos();
+		ArrayList<Integer> resultado  = calculadora.getListaDeNumerosPrimos("des");
 		Assert.assertEquals(resultadoEsperado, resultado);
 	}
 	
@@ -58,7 +58,7 @@ public class CalculadoraDePrimosTest {
 		resultadoEsperado.add(2);
 		
 		calculadora.calcularPrimos(360);
-		resultadoCalculado = calculadora.getListaDeNumerosPrimosDeFormaAscendente();
+		resultadoCalculado = calculadora.getListaDeNumerosPrimos("asc");
 		
 		Assert.assertEquals(resultadoEsperado, resultadoCalculado);
 	}
@@ -77,7 +77,7 @@ public class CalculadoraDePrimosTest {
 		resultadoEsperado.add(5);
 		
 		calculadora.calcularPrimos(360);
-		resultadoCalculado = calculadora.getListaDeNumerosPrimosDeFormaDescendente();
+		resultadoCalculado = calculadora.getListaDeNumerosPrimos("des");
 		
 		Assert.assertEquals(resultadoEsperado, resultadoCalculado);
 	}
