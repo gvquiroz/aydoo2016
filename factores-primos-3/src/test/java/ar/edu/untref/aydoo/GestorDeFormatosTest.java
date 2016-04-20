@@ -8,32 +8,32 @@ import junit.framework.Assert;
 
 public class GestorDeFormatosTest {
 	@Test
-	public void probandoDevolverDatosEnFormatoPretty(){
+	public void probandoDevolverDatosEnFormatoPretty() {
 		ArrayList<Integer> valoresDePrueba = new ArrayList<Integer>();
 		valoresDePrueba.add(1);
 		valoresDePrueba.add(2);
 		valoresDePrueba.add(3);
 		String resultadoEsperado = "1 2 3 ";
-		
+
 		GestorDeFormatos Formateador = new GestorDeFormatos();
-		
-		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba,"Pretty");
-		
-		Assert.assertEquals(resultadoEsperado,resultadoActual);
+
+		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba, "Pretty");
+
+		Assert.assertEquals(resultadoEsperado, resultadoActual);
 	}
-	
+
 	@Test
-	public void probandoDevolverDatosEnFormaroQuiett(){
+	public void probandoDevolverDatosEnFormaroQuiett() {
 		ArrayList<Integer> valoresDePrueba = new ArrayList<Integer>();
 		valoresDePrueba.add(1);
 		valoresDePrueba.add(2);
 		valoresDePrueba.add(3);
 		String resultadoEsperado = "\r\n1\r\n2\r\n3";
-		
+
 		GestorDeFormatos Formateador = new GestorDeFormatos();
-		
-		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba,"Quiett");
-		
-		Assert.assertEquals(resultadoEsperado,resultadoActual);
+
+		String resultadoActual = Formateador.getDatosConFormato(valoresDePrueba, "Quiett");
+
+		Assert.assertEquals(resultadoEsperado, resultadoActual);
 	}
 }
