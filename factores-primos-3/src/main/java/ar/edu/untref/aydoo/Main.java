@@ -5,8 +5,7 @@ import java.util.ArrayList;
 
 public class Main {
 	public static final void main(String args[]) throws IOException {
-		String ordenDefault = "asc";
-		String formatoDefault = "pretty";
+
 		ArrayList<Integer> resultadoDelCalculo = new ArrayList<>();
 		GestorDeOpcionesDeInterfaz interfaz = new GestorDeOpcionesDeInterfaz(args);
 		
@@ -26,20 +25,19 @@ public class Main {
 		CalculadoraDePrimos Calculadora = new CalculadoraDePrimos();
         Calculadora.calcularPrimos(numero);
         
-        
-        if (args.length == 1){
-			resultadoDelCalculo.addAll(Calculadora.getListaDeNumerosPrimos(ordenDefault));
-			resultadoFinal = formateador.getDatosConFormato(resultadoDelCalculo, formatoDefault);
-			System.out.print("Factores primos " + numero + ": ");
-			System.out.println(resultadoFinal);
-        }
-        
         if (interfaz.isImprime()){
         	String nombreDelArchivo = interfaz.getNombreDeArchivo();
         	resultadoDelCalculo.addAll(Calculadora.getListaDeNumerosPrimos(interfaz.getTipoDeOrdenamiento()));
         	System.out.println(interfaz.getTipoDeOrdenamiento());
         	resultadoFinal = formateador.getDatosConFormato(resultadoDelCalculo, interfaz.getFormato());
         	GestorDePersistencia escritorDeArchivos = new GestorDePersistencia(nombreDelArchivo,resultadoFinal);
+        } else {
+
+        	String orden = interfaz.getTipoDeOrdenamiento();
+			resultadoDelCalculo.addAll(Calculadora.getListaDeNumerosPrimos(orden));
+			resultadoFinal = formateador.getDatosConFormato(resultadoDelCalculo, interfaz.getFormato());
+			System.out.print("Factores primos " + numero + ": ");
+			System.out.println(resultadoFinal);
         }
         
 	}

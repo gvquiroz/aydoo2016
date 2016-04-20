@@ -3,22 +3,22 @@ package ar.edu.untref.aydoo;
 public class GestorDeOpcionesDeInterfaz {
 	
 	private String formato = "pretty";
+	private String tipoDeOrdenamiento = "asc";
 	private String nombreDeArchivo = null;
-	private String tipoDeOrdenamiento = "des";
 	private boolean imprime = false;
 	
 	public GestorDeOpcionesDeInterfaz (String args[]){
 		for (String datos: args){
 			if (datos.contains("--format=")){
 				String[] descomposicionDeFormato = datos.split("=");
-				formato = descomposicionDeFormato[1];
+				this.formato = descomposicionDeFormato[1];
 			} else if (datos.contains("--output-file=")){
 				String[] descomposicionDeOutput = datos.split("=");
-				nombreDeArchivo = descomposicionDeOutput[1];
-				imprime = true;
+				this.nombreDeArchivo = descomposicionDeOutput[1];
+				this.imprime = true;
 			} else if (datos.contains("--sort:")){
 				String[] descomposicionDeOrden = datos.split(":");
-				tipoDeOrdenamiento = descomposicionDeOrden[1];
+				this.tipoDeOrdenamiento = descomposicionDeOrden[1];
 			}
 		}
 	}

@@ -28,7 +28,7 @@ public class GestorDeFormatosTest {
 		valoresDePrueba.add(1);
 		valoresDePrueba.add(2);
 		valoresDePrueba.add(3);
-		String resultadoEsperado = "1\r\n2\r\n3\r\n";
+		String resultadoEsperado = "\r\n1\r\n2\r\n3";
 		
 		GestorDeFormatos Formateador = new GestorDeFormatos();
 		

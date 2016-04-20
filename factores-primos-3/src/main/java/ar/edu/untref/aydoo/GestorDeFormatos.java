@@ -18,7 +18,7 @@ public class GestorDeFormatos {
 			
 			case "quiett":
 				while(it.hasNext()){
-					resultado += it.next()+"\r\n";
+					resultado +="\r\n"+it.next();
 				}
 				break;
 		}
