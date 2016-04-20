@@ -2,6 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 
 public class GestorDePersistencia {
@@ -18,8 +19,8 @@ public class GestorDePersistencia {
 	private void crearArchivo() throws IOException {
 		File archivo = new File(this.nombreDelArchivo);
 		archivo.createNewFile();
-		PrintWriter escritor = new PrintWriter(archivo);
-		escritor.print(this.datosAGuardar);
+		PrintStream escritor = new PrintStream(archivo);
+		escritor.print(datosAGuardar);
 		escritor.close();
 	}
 	

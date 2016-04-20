@@ -36,4 +36,20 @@ public class GestorDePersistenciaTest {
 		lector.close();
 		Entrada.delete();
 	}
+	@Test
+	public void ProbandoGuardarDatosEnLineas() throws IOException{
+		String nombreDelArchivo = "test.txt"; 
+		String resultadoEsperado = "1\r\n2\r\n3\r\n";
+		GestorDePersistencia miGestor = new GestorDePersistencia(nombreDelArchivo,resultadoEsperado);
+		
+		File Entrada = new File(nombreDelArchivo);
+		FileReader lector = new FileReader(Entrada);
+		BufferedReader lectorDeLineas = new BufferedReader(lector);
+		
+		Assert.assertEquals("1",lectorDeLineas.readLine()); 
+		
+		lectorDeLineas.close();
+		lector.close();
+		Entrada.delete();
+	}
 }

@@ -2,9 +2,9 @@ package ar.edu.untref.aydoo;
 
 public class GestorDeOpcionesDeInterfaz {
 	
-	private String formato = "";
-	private String nombreDeArchivo = "";
-	private String tipoDeOrdenamiento = "";
+	private String formato = "pretty";
+	private String nombreDeArchivo = null;
+	private String tipoDeOrdenamiento = "des";
 	private boolean imprime = false;
 	
 	public GestorDeOpcionesDeInterfaz (String args[]){

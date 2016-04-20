@@ -1,9 +1,10 @@
 package ar.edu.untref.aydoo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
-	public static final void main(String args[]) {
+	public static final void main(String args[]) throws IOException {
 		String ordenDefault = "asc";
 		String formatoDefault = "pretty";
 		ArrayList<Integer> resultadoDelCalculo = new ArrayList<>();
@@ -33,7 +34,13 @@ public class Main {
 			System.out.println(resultadoFinal);
         }
         
-        
+        if (interfaz.isImprime()){
+        	String nombreDelArchivo = interfaz.getNombreDeArchivo();
+        	resultadoDelCalculo.addAll(Calculadora.getListaDeNumerosPrimos(interfaz.getTipoDeOrdenamiento()));
+        	System.out.println(interfaz.getTipoDeOrdenamiento());
+        	resultadoFinal = formateador.getDatosConFormato(resultadoDelCalculo, interfaz.getFormato());
+        	GestorDePersistencia escritorDeArchivos = new GestorDePersistencia(nombreDelArchivo,resultadoFinal);
+        }
         
 	}
 }

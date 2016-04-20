@@ -23,9 +23,9 @@ public class CalculadoraDePrimos {
 	 */
 	public ArrayList<Integer> getListaDeNumerosPrimos(String orden){
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
-		if (orden == "asc"){
+		if (orden == "des"){
 			resultado = this.getListaDeNumerosPrimosDeFormaAscendente();
-		} else if (orden == "des"){
+		} else if (orden == "asc"){
 			resultado = this.getListaDeNumerosPrimosDeFormaDescendente();
 		}
 		return resultado;
