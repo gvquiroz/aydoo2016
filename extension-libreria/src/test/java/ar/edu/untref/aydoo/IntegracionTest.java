@@ -5,7 +5,7 @@ import org.junit.Test;
 public class IntegracionTest {
 
 	@Test
-	public void casoClienteNoEncontrado(){
+	public void testCasoClienteNoEncontrado(){
 		
 		Kiosko elKiosko = new Kiosko();
 		
