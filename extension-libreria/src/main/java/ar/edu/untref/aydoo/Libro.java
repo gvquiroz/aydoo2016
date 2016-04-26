@@ -17,7 +17,7 @@ public class Libro extends Producto implements Alquilable {
 	@Override
 	public void setAlquilerEnMeses(int cantidadDeMeses) {
 		if(cantidadDeMeses > 3 || cantidadDeMeses < 1){
-			throw new CantidadDeDiasInvalidoException();
+			throw new CantidadDeMesesInvalidoException();
 		}
 		this.setValor(cantidadDeMeses*200);
 	}
