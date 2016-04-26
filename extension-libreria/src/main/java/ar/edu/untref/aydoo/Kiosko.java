@@ -9,8 +9,7 @@ public class Kiosko {
     private List<Cliente> clientes;
 	
 	public Kiosko(){
-		
-		clientes = new ArrayList<Cliente>();
+		this.clientes = new ArrayList<>();
 	}
 	
 	public void agregarCliente(Cliente unCliente) {
@@ -20,7 +19,7 @@ public class Kiosko {
 	public String calcularMontoACobrar(String mes, Cliente cliente) {
 		
 		Cliente clientePedido = null;
-		List <Producto> compras = new ArrayList<>();
+		List <ActivosKiosko> compras;
 		List <Double> valores = new ArrayList<>();
 		double montoTotal = 0;
 		boolean encontrado = false;
@@ -34,21 +33,14 @@ public class Kiosko {
 			}
 		}
 		
-		if (encontrado != false){
-			
+		if (encontrado){
 			compras = clientePedido.getCompras(clientePedido.getMes(mes));
 			for(int i = 0; i < compras.size(); i++){
-				
 				valores.add(compras.get(i).getValor());
 				montoTotal += compras.get(i).getValor();		
 			}
-			return mensaje(valores, montoTotal, mes, encontrado);
-
 		}
-		else{
-			return mensaje (valores, montoTotal, mes, encontrado);
-		}
-		  
+		return mensaje (valores, montoTotal, mes, encontrado);
 	}
 	
 	private String mensaje(List <Double> valores, double montoTotal, 
@@ -57,7 +49,7 @@ public class Kiosko {
 		String mensaje;
 		String precios = "";
 		
-		if ( encontrado != false){
+		if (encontrado){
 			for( int i = 0; i < valores.size(); i ++){
 				if (i == valores.size()-1){
 					precios += " " + valores.get(i); 

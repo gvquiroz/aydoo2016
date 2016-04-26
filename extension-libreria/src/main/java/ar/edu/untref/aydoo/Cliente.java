@@ -5,20 +5,20 @@ import java.util.List;
 
 public class Cliente {
 	
-	private ArrayList<List<Producto>> productosComprados;
+	private ArrayList<List<ActivosKiosko>> productosComprados;
     private String nombreCliente;
     private String direccion;
     
 	public Cliente(String nombre, String direccion) {
 
-		setDireccion(this.direccion);
-		setNombreCliente(this.nombreCliente);
+		setDireccion(direccion);
+		setNombreCliente(nombre);
 		
-		productosComprados = new ArrayList<List<Producto>>(12);
+		productosComprados = new ArrayList<>(12);
 		
 		//Inicializo cada mes
 		for (int i = 0; i < 12; i++){
-			productosComprados.add(new ArrayList<Producto>());	
+			productosComprados.add(new ArrayList<>());
 		}
 	}
 	
@@ -41,7 +41,7 @@ public class Cliente {
 		}
 	}
 	
-	public List<Producto> getCompras(int nroMes){
+	public List<ActivosKiosko> getCompras(int nroMes){
 		
 		return productosComprados.get(nroMes);
 	}
@@ -101,5 +101,30 @@ public class Cliente {
 					
 		}
 		return nroMes;
+	}
+
+	public void alquilarEnDias(Producto miProducto, String mes, int cantidadDeDias) throws cantidadDeDiasInvalidoException {
+		if(cantidadDeDias > 25 || cantidadDeDias < 3){
+			throw new cantidadDeDiasInvalidoException();
+		}
+
+		Producto productoEnAlquiler = miProducto;
+		productoEnAlquiler.setValor(10*cantidadDeDias);
+		this.productosComprados.get(this.getMes(mes)).add(miProducto);
+
+	}
+	public void alquilarEnMeses(Alquilable miAlq){
+
+	}
+	public void alquilarEnCuatrimestres(){
+
+	}
+
+	public void suscribirmeA(Suscribible miSuscribible,String mes, int mesesQueMeSuscribo){
+		if (mesesQueMeSuscribo > 11){
+			miSuscribible.agregarDescuento();
+		}
+		miSuscribible.setSuscripcion();
+		productosComprados.get(this.getMes(mes)).add(miSuscribible);
 	}
 }
