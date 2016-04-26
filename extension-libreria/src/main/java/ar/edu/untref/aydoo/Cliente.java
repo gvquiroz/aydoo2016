@@ -102,8 +102,9 @@ public class Cliente {
 		this.productosComprados.get(this.getMes(mes)).add(miProducto);
 
 	}
-	public void alquilarEnMeses(Alquilable miAlq){
-
+	public void alquilarEnMeses(Alquilable miProducto,String mes, int cantidadDeMeses){
+		miProducto.setAlquilerEnDias(cantidadDeMeses);
+		this.productosComprados.get(this.getMes(mes)).add(miProducto);
 	}
 	public void alquilarEnCuatrimestres(){
 

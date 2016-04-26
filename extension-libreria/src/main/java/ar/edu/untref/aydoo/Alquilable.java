@@ -5,6 +5,6 @@ package ar.edu.untref.aydoo;
  */
 public interface Alquilable extends ActivosKiosko{
     public void setAlquilerEnDias(int cantidadDeDias);
-    public void setAlquilerEnMeses();
-    public void setAlquilerEnCuatrimestres();
+    public void setAlquilerEnMeses(int cantidadDeMeses);
+    public void setAlquilerEnCuatrimestres(int cantidadDeCuatrimestres);
 }
