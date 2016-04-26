@@ -96,13 +96,9 @@ public class Cliente {
 		return nroMes;
 	}
 
-	public void alquilarEnDias(Producto miProducto, String mes, int cantidadDeDias) throws cantidadDeDiasInvalidoException {
-		if(cantidadDeDias > 25 || cantidadDeDias < 3){
-			throw new cantidadDeDiasInvalidoException();
-		}
+	public void alquilarEnDias(Alquilable miProducto, String mes, int cantidadDeDias) throws CantidadDeDiasInvalidoException {
 
-		Producto productoEnAlquiler = miProducto;
-		productoEnAlquiler.setValor(10*cantidadDeDias);
+		miProducto.setAlquilerEnDias(cantidadDeDias);
 		this.productosComprados.get(this.getMes(mes)).add(miProducto);
 
 	}

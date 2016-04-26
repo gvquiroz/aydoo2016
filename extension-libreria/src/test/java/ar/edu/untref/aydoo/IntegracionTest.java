@@ -259,7 +259,7 @@ public class IntegracionTest {
 	}
 	
 	@Test
-	public void casoDos(){
+	public void testSeSuscribeAUnaRevistaYCompraUnDiario(){
 
 		Kiosko elKiosko = new Kiosko();
 		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
@@ -289,19 +289,19 @@ public class IntegracionTest {
 				elKiosko.calcularMontoACobrar("Marzo",maria));
 	}
 
-	@Test(expected = cantidadDeDiasInvalidoException.class)
-	public  void testAlquilarUnLibroTreitaDia(){
-		Kiosko unKiosko = new Kiosko();
+	@Test(expected = CantidadDeDiasInvalidoException.class)
+	public  void testAlquilarUnLibroTreintaDiasYArrojaUnaException(){
+
 		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
-		Producto elHobbit = new Libro("El Hobbit", 50);
+		Alquilable elHobbit = new Libro("El Hobbit", 50);
 
 		maria.alquilarEnDias(elHobbit,"Enero",30);
 	}
-	@Test(expected = cantidadDeDiasInvalidoException.class)
-	public  void testAlquilarUnLibroUnDia(){
-		Kiosko unKiosko = new Kiosko();
+	@Test(expected = CantidadDeDiasInvalidoException.class)
+	public  void testAlquilarUnLibroUnDiaYArrojaUnaException(){
+
 		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
-		Producto elHobbit = new Libro("El Hobbit", 50);
+		Alquilable elHobbit = new Libro("El Hobbit", 50);
 
 		maria.alquilarEnDias(elHobbit,"Enero",1);
 	}
@@ -309,7 +309,7 @@ public class IntegracionTest {
 	public  void testAlquilarUnLibroVeinteDias(){
 		Kiosko unKiosko = new Kiosko();
 		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
-		Producto elHobbit = new Libro("El Hobbit", 50);
+		Alquilable elHobbit = new Libro("El Hobbit", 50);
 		unKiosko.agregarCliente(maria);
 		maria.alquilarEnDias(elHobbit,"Enero",20);
 
@@ -320,7 +320,7 @@ public class IntegracionTest {
 	public  void testAlquilarUnLibroDiezDias(){
 		Kiosko unKiosko = new Kiosko();
 		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
-		Producto elHobbit = new Libro("El Hobbit", 50);
+		Alquilable elHobbit = new Libro("El Hobbit", 50);
 		unKiosko.agregarCliente(maria);
 		maria.alquilarEnDias(elHobbit,"Enero",10);
 
