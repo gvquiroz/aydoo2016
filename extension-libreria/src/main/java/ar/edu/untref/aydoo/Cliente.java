@@ -31,14 +31,7 @@ public class Cliente {
 	}
 	
 	public void comprar(Producto unProducto, String mes){
-		
-		if (unProducto.getTipo() == "Periodico" || unProducto.getTipo() == "Revista"){
-			for (int i= 0; i < productosComprados.size(); i ++){
-				productosComprados.get(i).add(unProducto);
-			}
-		}else{
 			productosComprados.get(getMes(mes)).add(unProducto);
-		}
 	}
 	
 	public List<ActivosKiosko> getCompras(int nroMes){
@@ -124,7 +117,10 @@ public class Cliente {
 		if (mesesQueMeSuscribo > 11){
 			miSuscribible.agregarDescuento();
 		}
-		miSuscribible.setSuscripcion();
-		productosComprados.get(this.getMes(mes)).add(miSuscribible);
+		miSuscribible.setSuscripcionMensual();
+		for (int i = this.getMes(mes); i < mesesQueMeSuscribo; i++){
+			productosComprados.get(i).add(miSuscribible);
+		}
+
 	}
 }

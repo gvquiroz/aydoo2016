@@ -128,7 +128,7 @@ public class IntegracionTest {
 		Cliente juan = new Cliente("Juan", "Av. San Martin 5213");
 		elKiosko.agregarCliente(juan);
 		
-		Producto producto1 = new Periodico ("Clarín", 13, false);
+		Producto producto1 = new PublicacionPeriodica ("Clarín", 13, 30);
 
 		juan.comprar(producto1, "Febrero");
 		
@@ -144,11 +144,11 @@ public class IntegracionTest {
 		Cliente juan = new Cliente("Juan", "Av. San Martin 5213");
 		elKiosko.agregarCliente(juan);
 		
-		Producto producto1 = new Periodico ("Clarín", 13, true);
+		Suscribible DiarioClarin = new PublicacionPeriodica ("Clarín", 13, 30);
 
-		juan.comprar(producto1, "Febrero");
+		juan.suscribirmeA(DiarioClarin, "Febrero",3);
 		
-		Assert.assertEquals("Monto a cobrarle por febrero: 312.0 = $312.0",
+		Assert.assertEquals("Monto a cobrarle por febrero: 390.0 = $390.0",
 				elKiosko.calcularMontoACobrar("Febrero",juan));
 	}
 	
@@ -160,11 +160,11 @@ public class IntegracionTest {
 		Cliente juan = new Cliente("Juan", "Av. San Martin 5213");
 		elKiosko.agregarCliente(juan);
 		
-		Producto producto1 = new Periodico ("Clarín", 13, true);
+		Suscribible DiarioClarin = new PublicacionPeriodica ("Clarín", 13, 30);
 
-		juan.comprar(producto1, "Febrero");
+		juan.suscribirmeA(DiarioClarin, "Febrero",10);
 		
-		Assert.assertEquals("Monto a cobrarle por junio: 312.0 = $312.0", 
+		Assert.assertEquals("Monto a cobrarle por junio: 390.0 = $390.0",
 				elKiosko.calcularMontoACobrar("Junio",juan));
 	}
 	
@@ -176,11 +176,11 @@ public class IntegracionTest {
 		Cliente juan = new Cliente("Juan", "Av. San Martin 5213");
 		elKiosko.agregarCliente(juan);
 		
-		Producto producto1 = new Periodico ("Clarín", 13, true);
+		Suscribible DiarioClarin = new PublicacionPeriodica ("Clarín", 13, 30);
 
-		juan.comprar(producto1, "Febrero");
+		juan.suscribirmeA(DiarioClarin, "Febrero",5);
 		
-		Assert.assertEquals("Monto a cobrarle por marzo: 312.0 = $312.0", 
+		Assert.assertEquals("Monto a cobrarle por marzo: 390.0 = $390.0",
 				elKiosko.calcularMontoACobrar("Marzo",juan));
 
 	}
@@ -193,14 +193,14 @@ public class IntegracionTest {
 		Cliente juan = new Cliente("Juan", "Av. San Martin 5213");
 		elKiosko.agregarCliente(juan);
 		
-		Producto producto1 = new Periodico ("Clarín", 13, true);
+		Suscribible DiarioClarin = new PublicacionPeriodica ("Clarín", 13, 30);
 
 		Producto producto2 = new Libro("La Metamorfosis", 70);
 
-		juan.comprar(producto1, "Febrero");
+		juan.suscribirmeA(DiarioClarin, "Febrero",2);
 		juan.comprar(producto2, "Febrero");
 		
-		Assert.assertEquals("Monto a cobrarle por febrero: 312.0 + 70.0 = $382.0", 
+		Assert.assertEquals("Monto a cobrarle por febrero: 390.0 + 70.0 = $460.0",
 				elKiosko.calcularMontoACobrar("Febrero",juan));
 	}
 	
@@ -210,7 +210,7 @@ public class IntegracionTest {
 		Kiosko elKiosko = new Kiosko();
 		Cliente juan = new Cliente("Juan", "Av. San Martin 5213");
 		elKiosko.agregarCliente(juan);
-		Suscribible revistaSuscribible = new Revista("Barcelona", 20, 2);
+		Suscribible revistaSuscribible = new PublicacionPeriodica("Barcelona", 20, 2);
 
 		juan.suscribirmeA(revistaSuscribible,"marzo",3);
 
@@ -227,7 +227,7 @@ public class IntegracionTest {
 		Cliente juan = new Cliente("Juan", "Av. San Martin 5213");
 		elKiosko.agregarCliente(juan);
 		
-		Producto producto1 = new Revista("Barcelona", 20, 2);
+		Producto producto1 = new PublicacionPeriodica("Barcelona", 20, 2);
 
 		juan.comprar(producto1, "Marzo");
 		
@@ -248,7 +248,7 @@ public class IntegracionTest {
 
 		Producto producto2 = new ArticuloLibreria("LapiceraBic", 5, 2);
 
-		Producto producto3 = new Periodico ("El Gráfico", 30, false);
+		Producto producto3 = new PublicacionPeriodica ("El Gráfico", 30, 30);
 
 		juan.comprar(producto1, "Agosto");
 		juan.comprar(producto2, "Agosto");
@@ -264,14 +264,29 @@ public class IntegracionTest {
 		Kiosko elKiosko = new Kiosko();
 		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
 		elKiosko.agregarCliente(maria);
-		Suscribible revistaBarcelonaSuscripcion = new Revista("Barcelona", 20, 2);
-		Producto producto2 = new Periodico ("Página 12", 12, false);
+		Suscribible revistaBarcelonaSuscripcion = new PublicacionPeriodica("Barcelona", 20, 2);
+		Producto producto2 = new PublicacionPeriodica ("Página 12", 12, 30);
 
 		maria.suscribirmeA(revistaBarcelonaSuscripcion,"Enero",12);
 		maria.comprar(producto2, "Enero");
 		
 		Assert.assertEquals("Monto a cobrarle por enero: 32.0 + 12.0 = $44.0", 
 				elKiosko.calcularMontoACobrar("Enero",maria));
+	}
+	@Test
+	public void testSuscripcionConDescuentoPrecioAPagarPorClienteEnOtroMes(){
+
+		Kiosko elKiosko = new Kiosko();
+		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
+		elKiosko.agregarCliente(maria);
+		Suscribible revistaBarcelonaSuscripcion = new PublicacionPeriodica("Barcelona", 20, 2);
+		Producto producto2 = new PublicacionPeriodica ("Página 12", 12, 30);
+
+		maria.suscribirmeA(revistaBarcelonaSuscripcion,"Enero",12);
+		maria.comprar(producto2, "Enero");
+
+		Assert.assertEquals("Monto a cobrarle por marzo: 32.0 = $32.0",
+				elKiosko.calcularMontoACobrar("Marzo",maria));
 	}
 
 	@Test(expected = cantidadDeDiasInvalidoException.class)

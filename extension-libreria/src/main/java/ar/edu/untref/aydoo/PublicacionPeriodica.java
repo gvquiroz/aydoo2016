@@ -1,20 +1,20 @@
 package ar.edu.untref.aydoo;
 
-public class Revista extends Producto implements Suscribible{
+public class PublicacionPeriodica extends Producto implements Suscribible{
 
 
 	private final int periodicidadMensual;
 	private boolean suscripcion;
 	private boolean tieneDescuento;
 
-	public Revista(String nombre, double monto, int nuevaPeriodicidadMensual) {
+	public PublicacionPeriodica(String nombre, double monto, int nuevaPeriodicidadMensual) {
 		super(nombre, monto);
 		this.periodicidadMensual = nuevaPeriodicidadMensual;
 		this.tieneDescuento = false;
 	}
 
 	@Override
-	public void setSuscripcion() {
+	public void setSuscripcionMensual() {
 
 		if (tieneDescuento){
 			double productoConDescuento = this.getValor() - (this.getValor()*0.2);
