@@ -64,8 +64,8 @@ public class AlquilableTest {
     @Test
     public void testCalculandoPrecioDeProductoEnUnCuatrimestre(){
         Alquilable nuevoLibro = new Libro("The way of the superior man", 15);
-        nuevoLibro.setAlquilerEnMeses(4);
-        int valorEsperado = 200;
+        nuevoLibro.setAlquilerEnCuatrimestres(1);
+        int valorEsperado = 720;
         Assert.assertEquals(valorEsperado, nuevoLibro.getValor(),.0);
     }
 }

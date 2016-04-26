@@ -24,6 +24,8 @@ public class Libro extends Producto implements Alquilable {
 
 	@Override
 	public void setAlquilerEnCuatrimestres(int cantidadDeCuatrimestres) {
+		double descuento = (200*cantidadDeCuatrimestres*4)*(0.1 * cantidadDeCuatrimestres);
+		this.setValor(200*cantidadDeCuatrimestres*4-descuento);
 
 	}
 }
