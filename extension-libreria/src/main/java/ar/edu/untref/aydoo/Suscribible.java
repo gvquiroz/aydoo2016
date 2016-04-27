@@ -5,5 +5,6 @@ package ar.edu.untref.aydoo;
  */
 public interface Suscribible extends ActivosKiosko {
     public void setSuscripcionMensual();
+
     public void agregarDescuento();
 }
