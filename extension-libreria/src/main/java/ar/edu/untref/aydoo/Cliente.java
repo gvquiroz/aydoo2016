@@ -103,10 +103,20 @@ public class Cliente {
 
 	}
 	public void alquilarEnMeses(Alquilable miProducto,String mes, int cantidadDeMeses){
-		miProducto.setAlquilerEnDias(cantidadDeMeses);
-		this.productosComprados.get(this.getMes(mes)).add(miProducto);
+		miProducto.setAlquilerEnMeses(cantidadDeMeses);
+		for (int i = this.getMes(mes); i < cantidadDeMeses; i++){
+			productosComprados.get(i).add(miProducto);
+		}
 	}
-	public void alquilarEnCuatrimestres(){
+	public void alquilarEnCuatrimestres(Alquilable miProducto,String mes, int cantidadDeCuatrimestres){
+
+		if (cantidadDeCuatrimestres == 2){
+			this.productosComprados.get(this.getMes(mes)).add(miProducto);
+			this.productosComprados.get(this.getMes(mes)+4).add(miProducto);
+		} else {
+			this.productosComprados.get(this.getMes(mes)).add(miProducto);
+		}
+		miProducto.setAlquilerEnCuatrimestres(cantidadDeCuatrimestres);
 
 	}
 

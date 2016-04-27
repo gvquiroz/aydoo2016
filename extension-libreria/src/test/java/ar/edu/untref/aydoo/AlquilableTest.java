@@ -49,13 +49,7 @@ public class AlquilableTest {
         int valorEsperado = 200;
         Assert.assertEquals(valorEsperado, nuevoLibro.getValor(),.0);
     }
-    @Test
-    public void testCalculandoPrecioDeProductoEnDosMeses(){
-        Alquilable nuevoLibro = new Libro("The way of the superior man", 15);
-        nuevoLibro.setAlquilerEnMeses(2);
-        int valorEsperado = 400;
-        Assert.assertEquals(valorEsperado, nuevoLibro.getValor(),.0);
-    }
+
     @Test (expected = CantidadDeMesesInvalidoException.class)
     public void testCalculandoPrecioDeProductoEnCuatroMeses(){
         Alquilable nuevoLibro = new Libro("The way of the superior man", 15);
@@ -72,7 +66,7 @@ public class AlquilableTest {
     public void testCalculandoPrecioDeProductoEnDosCuatrimestres(){
         Alquilable nuevoLibro = new Libro("The way of the superior man", 15);
         nuevoLibro.setAlquilerEnCuatrimestres(2);
-        int valorEsperado = 1280;
+        int valorEsperado = 640;
         Assert.assertEquals(valorEsperado, nuevoLibro.getValor(),.0);
     }
     @Test(expected = CantidadDeCuatrimestresInvalidoException.class)

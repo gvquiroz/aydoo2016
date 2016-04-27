@@ -327,4 +327,76 @@ public class IntegracionTest {
 		Assert.assertEquals("Monto a cobrarle por enero: 100.0 = $100.0",
 				unKiosko.calcularMontoACobrar("Enero",maria));
 	}
+	@Test
+	public  void testAlquilarUnLibroEnDosMeses(){
+		Kiosko unKiosko = new Kiosko();
+		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
+		Alquilable elHobbit = new Libro("El Hobbit", 50);
+		unKiosko.agregarCliente(maria);
+
+		maria.alquilarEnMeses(elHobbit,"Enero",2);
+
+		Assert.assertEquals("Monto a cobrarle por enero: 200.0 = $200.0",
+				unKiosko.calcularMontoACobrar("Enero",maria));
+	}
+	@Test
+	public  void testAlquilarUnLibroEnDosMesesYPreguntoPorElMesSiguiente(){
+		Kiosko unKiosko = new Kiosko();
+		Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
+		Alquilable elHobbit = new Libro("El Hobbit", 50);
+		unKiosko.agregarCliente(maria);
+
+		maria.alquilarEnMeses(elHobbit,"Enero",2);
+
+		Assert.assertEquals("Monto a cobrarle por febrero: 200.0 = $200.0",
+				unKiosko.calcularMontoACobrar("Febrero",maria));
+	}
+    @Test
+    public  void testAlquilarUnLibroEnDosMesesYPreguntoPorLosTresMesesSiguientes(){
+        Kiosko unKiosko = new Kiosko();
+        Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
+        Alquilable elHobbit = new Libro("El Hobbit", 50);
+        unKiosko.agregarCliente(maria);
+
+        maria.alquilarEnMeses(elHobbit,"Enero",2);
+
+        Assert.assertEquals("Monto a cobrarle por marzo: = $0.0",
+                unKiosko.calcularMontoACobrar("Marzo",maria));
+    }
+    @Test
+    public  void testAlquilarUnLibroPorUnCuatrimestre(){
+        Kiosko unKiosko = new Kiosko();
+        Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
+        Alquilable elHobbit = new Libro("El Hobbit", 50);
+        unKiosko.agregarCliente(maria);
+
+        maria.alquilarEnCuatrimestres(elHobbit,"Enero",1);
+
+        Assert.assertEquals("Monto a cobrarle por enero: 720.0 = $720.0",
+                unKiosko.calcularMontoACobrar("Enero",maria));
+    }
+    @Test
+    public  void testAlquilarUnLibroPorDosCuatrimestresPreguntoEnElPrimerMesDelAlquiler(){
+        Kiosko unKiosko = new Kiosko();
+        Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
+        Alquilable elHobbit = new Libro("El Hobbit", 50);
+        unKiosko.agregarCliente(maria);
+
+        maria.alquilarEnCuatrimestres(elHobbit,"Enero",2);
+
+        Assert.assertEquals("Monto a cobrarle por enero: 640.0 = $640.0",
+                unKiosko.calcularMontoACobrar("Enero",maria));
+    }
+    @Test
+    public  void testAlquilarUnLibroPorDosCuatrimestresPreguntoDentroDeCuatroMesesPorLaSegundaCuota(){
+        Kiosko unKiosko = new Kiosko();
+        Cliente maria = new Cliente("María", "Av. Alvarez Thomas 213");
+        Alquilable elHobbit = new Libro("El Hobbit", 50);
+        unKiosko.agregarCliente(maria);
+
+        maria.alquilarEnCuatrimestres(elHobbit,"Enero",2);
+
+        Assert.assertEquals("Monto a cobrarle por mayo: 640.0 = $640.0",
+                unKiosko.calcularMontoACobrar("Mayo",maria));
+    }
 }

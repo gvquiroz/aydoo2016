@@ -19,7 +19,7 @@ public class Libro extends Producto implements Alquilable {
 		if(cantidadDeMeses > 3 || cantidadDeMeses < 1){
 			throw new CantidadDeMesesInvalidoException();
 		}
-		this.setValor(cantidadDeMeses*200);
+		this.setValor(200);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class Libro extends Producto implements Alquilable {
 		if(cantidadDeCuatrimestres > 2 || cantidadDeCuatrimestres < 1){
 			throw new CantidadDeCuatrimestresInvalidoException();
 		}
-		double descuento = (200*cantidadDeCuatrimestres*4)*(0.1 * cantidadDeCuatrimestres);
-		this.setValor(200*cantidadDeCuatrimestres*4-descuento);
+		double descuento = (800)*(0.1 * cantidadDeCuatrimestres);
+		this.setValor(800-descuento);
 	}
 }
