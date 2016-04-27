@@ -35,7 +35,6 @@ public class Cliente {
 	}
 	
 	public List<ActivosKiosko> getCompras(int nroMes){
-		
 		return productosComprados.get(nroMes);
 	}
 	
@@ -117,7 +116,6 @@ public class Cliente {
 			this.productosComprados.get(this.getMes(mes)).add(miProducto);
 		}
 		miProducto.setAlquilerEnCuatrimestres(cantidadDeCuatrimestres);
-
 	}
 
 	public void suscribirmeA(Suscribible miSuscribible,String mes, int mesesQueMeSuscribo){
@@ -128,6 +126,5 @@ public class Cliente {
 		for (int i = this.getMes(mes); i < mesesQueMeSuscribo; i++){
 			productosComprados.get(i).add(miSuscribible);
 		}
-
 	}
 }
